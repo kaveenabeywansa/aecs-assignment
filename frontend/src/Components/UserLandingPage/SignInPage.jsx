@@ -1,4 +1,8 @@
 import React from "react";
+import UserPool from "../../UserPool";
+import { CognitoUser, AuthenticationDetails,  } from "amazon-cognito-identity-js";
+import Swal from 'sweetalert2';
+
 function SignInForm() {
   const [state, setState] = React.useState({
     username: "",
@@ -17,8 +21,37 @@ function SignInForm() {
 
     const { username, password } = state;
 
-    console.log('username', username);
-    console.log('password', password);
+    const user = new CognitoUser({
+      Username: username,
+      Pool: UserPool
+    });
+
+    const authDetails = new AuthenticationDetails({
+      Username: username,
+      Password: password
+    });
+
+    user.authenticateUser(authDetails, {
+      onSuccess: (data) => {
+        console.log("onSuccess: ", data);
+        localStorage.setItem('loggedUsername', username);
+        // TODO: navigate to dashboard
+      },
+      onFailure: (err) => {
+        if (err == 'NotAuthorizedException: Incorrect username or password.') {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Incorrect username or password!"
+          });
+        } else {
+          console.error("onFailure: ", err);
+        }
+      },
+      newPasswordRequired: (data) => {
+        console.log("newPasswordRequired: ", data);
+      }
+    })
   };
 
   return (
