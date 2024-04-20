@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import UserPool from "../UserPool";
-import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
-var AmazonCognitoIdentity = require('amazon-cognito-identity-js');
+import { CognitoUser } from "amazon-cognito-identity-js";
 
 const ConfirmCode = () => {
     const [confirmCode, setConfirmCode] = useState("");

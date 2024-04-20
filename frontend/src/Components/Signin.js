@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import UserPool from "../UserPool";
 import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
-var AmazonCognitoIdentity = require('amazon-cognito-identity-js');
 
 const SignIn = () => {
     const [password, setPassword] = useState("");
