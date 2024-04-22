@@ -1,5 +1,5 @@
 // import { db, TABLE } from '../configs/dynamo-db-config';
-const {db, TABLE} = require('../configs/dynamo-db-config');
+const { db, TABLE } = require('../configs/dynamo-db-config');
 
 let Controller = function () {
     // Create or Update users
@@ -33,6 +33,36 @@ let Controller = function () {
 
     }
 
+    // Add Like to User
+    this.addLikeToUser = async (username, body = {}) => {
+        const { success, data } = await this.getUserById(username);
+        let newObjBody;
+        if (success && data.user_id) {
+            newObjBody = data;
+        } else {
+            newObjBody = {
+                user_id: username
+            };
+        }
+
+        if (!newObjBody.likes) {
+            newObjBody.likes = [];
+        }
+        newObjBody.likes.push(body.label);
+
+        const params = {
+            TableName: TABLE,
+            Item: newObjBody
+        }
+
+        try {
+            await db.put(params).promise();
+            return { success: true };
+        } catch (error) {
+            return { success: false };
+        }
+    }
+
     // Read Users by ID
     this.getUserById = async (value, key = 'user_id') => {
         const params = {
@@ -42,7 +72,6 @@ let Controller = function () {
             }
         }
         try {
-            console.log('params', params);
             const { Item = {} } = await db.get(params).promise()
             return { success: true, data: Item }
         } catch (error) {
