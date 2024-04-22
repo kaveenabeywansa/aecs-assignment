@@ -4,7 +4,8 @@ import SignIn from './Components/Signin';
 import Signup from './Components/Signup';
 import ConfirmCode from './Components/ConfirmEmail';
 import LandingOchestrator from './Components/UserLandingPage/LandingOchestrator';
-import UserLikesDashboard from './Components/UserLikesPage/UserLIkesDashbaord';
+import UserLikesDashboard from './Components/UserLikesPage/UserLIkesDashboard';
+import UserDashboard from './Components/Dashboard/UserDashboard';
 
 
 export default createBrowserRouter([
@@ -23,6 +24,10 @@ export default createBrowserRouter([
     {
         path: "/confirmcode",
         element: <ConfirmCode />
+    },
+    {
+        path: "dashboard",
+        element: <UserDashboard />
     },
     {
         path: "/userlikes",

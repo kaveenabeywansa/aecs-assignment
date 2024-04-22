@@ -1,9 +1,11 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 import UserPool from "../../UserPool";
 import { CognitoUser, AuthenticationDetails,  } from "amazon-cognito-identity-js";
 import Swal from 'sweetalert2';
 
 function SignInForm() {
+  const navigate = useNavigate();
   const [state, setState] = React.useState({
     username: "",
     password: ""
@@ -35,7 +37,7 @@ function SignInForm() {
       onSuccess: (data) => {
         console.log("onSuccess: ", data);
         localStorage.setItem('loggedUsername', username);
-        // TODO: navigate to dashboard
+        navigate('/dashboard');
       },
       onFailure: (err) => {
         if (err == 'NotAuthorizedException: Incorrect username or password.') {

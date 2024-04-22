@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import LikeService from '../../Helpers/user-likes-service';
 
 function LikeItem(props) {
     return (

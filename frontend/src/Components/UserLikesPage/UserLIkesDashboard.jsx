@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import LikeService from '../../Helpers/user-likes-service';
 import LikeItem from './LikeItem';
 
 function UserLikesDashboard() {
+    const navigate = useNavigate();
+
     const [likeInputStr, setLikeInput] = React.useState("");
     const [userLikesArr, setUserLikesArr] = React.useState([]);
 
@@ -31,7 +34,10 @@ function UserLikesDashboard() {
 
     return (
         <div className="user-likes-container">
-            <h3>User Like Management</h3>
+            <button className='transparent-btn' onClick={() => navigate('/dashboard')}>
+                <img height={50} src={require('../../assets/home.png')} />
+            </button>
+            <h2>User Like Management</h2>
             <form onSubmit={handleOnSubmit}>
                 <div className="add-likes-div">
                     <input
