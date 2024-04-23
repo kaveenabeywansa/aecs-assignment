@@ -6,6 +6,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import LandingOchestrator from './Components/UserLandingPage/LandingOchestrator';
 import UserLikesDashboard from './Components/UserLikesPage/UserLIkesDashboard';
 import UserDashboard from './Components/Dashboard/UserDashboard';
+import UserQuoteDashboard from './Components/UserQuotePage/UserQuoteDashboard';
 
 
 export default createBrowserRouter([
@@ -32,5 +33,9 @@ export default createBrowserRouter([
     {
         path: "/userlikes",
         element: <UserLikesDashboard />
+    },
+    {
+        path: "/userquotes",
+        element: <UserQuoteDashboard />
     }
 ]);

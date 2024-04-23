@@ -4,6 +4,7 @@
 }
 
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
 
 * {
   box-sizing: border-box;
@@ -327,4 +328,49 @@ ol {
   border: none;
   padding: 0 !important;
   margin: 0 !important;
+}
+
+.wrapper{
+  width: 80%;
+  border-radius: 15px;
+  padding: 30px 30px 25px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  margin: 0px auto 20px;
+}
+.main-wrapper {
+  width: 700px !important;
+}
+.wrapper header{
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+}
+.content .quote-area{
+  display: flex;
+  justify-content: center;
+}
+.quote-area i{
+  font-size: 15px;
+}
+.quote-area i:first-child{
+  margin: 3px 10px 0 0;
+}
+.quote-area i:last-child{
+  display: flex;
+  margin: 0 0 3px 10px;
+  align-items: flex-end;
+}
+.quote-area .quote{
+  font-size: 22px;
+  text-align: center;
+}
+.content .author{
+  display: flex;
+  font-size: 18px;
+  font-style: italic;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+.author span:first-child{
+  margin: -5px 5px 0 0;
 }

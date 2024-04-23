@@ -38,7 +38,7 @@ function UserDashboard(props) {
             <button onClick={() => navigate('/userlikes')}>
                 <img height={300} src={require('../../assets/user-likes.png')} />
             </button>
-            <button>
+            <button onClick={() => navigate('/userquotes')}>
                 <img height={300} src={require('../../assets/user-quotes.png')} />
             </button>
         </div>

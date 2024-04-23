@@ -4,7 +4,7 @@ import apiConfig from './api-config';
 const URL_SEGMENT = '/likes';
 
 let getUrl = () => {
-    return apiConfig.getAppendedUrl(URL_SEGMENT);
+    return apiConfig.getAppendedUrl(apiConfig.CONST_USER_LIKE_API, URL_SEGMENT);
 };
 
 let LikeService = function () {
