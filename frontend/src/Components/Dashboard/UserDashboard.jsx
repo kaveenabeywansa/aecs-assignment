@@ -1,9 +1,30 @@
-import React from 'react';
+import React, { useEffect }  from 'react';
 import { useNavigate } from 'react-router-dom';
+import UserPool from "../../UserPool";
+import { CognitoUser } from "amazon-cognito-identity-js";
+import authGuard from '../../Helpers/auth-guard';
 
 function UserDashboard(props) {
     const navigate = useNavigate();
     const username = localStorage.getItem('loggedUsername');
+
+    useEffect(() => {
+        if (!authGuard.isAuthenticated()) {
+            navigate('/');
+            return;
+        }
+    }, []);
+
+    const handleSignOut = () => {
+        const user = new CognitoUser({
+            Username: username,
+            Pool: UserPool
+        });
+
+        user.signOut();
+        localStorage.removeItem('loggedUsername');
+        navigate('/');
+    }
     return (
         <div className="dashboard-container">
             <h2>
@@ -15,7 +36,7 @@ function UserDashboard(props) {
             <button onClick={() => navigate('/userlikes')}>
                 <img height={300} src={require('../../assets/user-likes.png')} />
             </button>
-            <button>
+            <button onClick={handleSignOut}>
                 <img height={300} src={require('../../assets/user-quotes.png')} />
             </button>
         </div>

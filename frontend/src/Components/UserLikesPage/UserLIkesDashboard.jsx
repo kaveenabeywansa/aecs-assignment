@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LikeService from '../../Helpers/user-likes-service';
 import LikeItem from './LikeItem';
+import authGuard from '../../Helpers/auth-guard';
 
 function UserLikesDashboard() {
     const navigate = useNavigate();
@@ -10,6 +11,10 @@ function UserLikesDashboard() {
     const [userLikesArr, setUserLikesArr] = React.useState([]);
 
     useEffect(() => {
+        if (!authGuard.isAuthenticated()) {
+            navigate('/');
+            return;
+        }
         getUserLikes();
     }, []);
 
