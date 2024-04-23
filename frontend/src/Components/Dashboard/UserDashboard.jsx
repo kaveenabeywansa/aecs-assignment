@@ -30,13 +30,15 @@ function UserDashboard(props) {
             <h2>
                 Welcome {username}
             </h2>
-
+            <button className='signout-btn' onClick={handleSignOut}>
+                <img height={50} src={require('../../assets/logout.webp')} />
+            </button>
             <hr className='hr-separtor' />
 
             <button onClick={() => navigate('/userlikes')}>
                 <img height={300} src={require('../../assets/user-likes.png')} />
             </button>
-            <button onClick={handleSignOut}>
+            <button>
                 <img height={300} src={require('../../assets/user-quotes.png')} />
             </button>
         </div>
