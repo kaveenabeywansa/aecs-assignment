@@ -64,6 +64,18 @@ router.post('/:id/addquote', async (req, res) => {
     return res.status(500).json({ success: false, message: "Error" });
 })
 
+// generate new quote and add to list
+router.get('/:id/generatequote', async (req, res) => {
+    const { id } = req.params;
+
+    const { success, data } = await Controller.generateQuote(id);
+    if (success) {
+        return res.json({ success, data });
+    }
+
+    return res.status(500).json({ success: false, message: "Error" });
+})
+
 // Delete by Id
 router.delete('/:id', async (req, res) => {
     const { id } = req.params;

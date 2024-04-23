@@ -1,4 +1,5 @@
 const { db, TABLE } = require('../configs/dynamo-db-config');
+const dummyQuoteData = require('../datastore/dummy-data.json');
 
 let Controller = function () {
     // Create or Update
@@ -47,7 +48,7 @@ let Controller = function () {
         if (!newObjBody.quotes) {
             newObjBody.quotes = [];
         }
-        newObjBody.quotes.push(body.label);
+        newObjBody.quotes.push(body.quote);
 
         const params = {
             TableName: TABLE,
@@ -59,6 +60,26 @@ let Controller = function () {
             return { success: true };
         } catch (error) {
             return { success: false };
+        }
+    }
+
+    // Generate and save new quote for user
+    this.generateQuote = async (username) => {
+        // fetch a quote from json
+        let min = 0; // first element in the array
+        let max = dummyQuoteData.quotes.length - 1; // last element in the array
+        let randomInt = Math.floor(Math.random() * (max - min + 1)) + min;
+        let selectedQuote = dummyQuoteData.quotes[randomInt];
+
+        let newQuoteObj = {
+            quote: selectedQuote
+        };
+        try {
+            // save the new quote and return it
+            await this.addQuoteToUser(username, newQuoteObj);
+            return { success: true, data: selectedQuote }
+        } catch (error) {
+            return { success: false, data: null }
         }
     }
 
