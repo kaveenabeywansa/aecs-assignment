@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import UserPool from "../UserPool";
+import UserPool from "../Helpers/user-pool-config";
 var AmazonCognitoIdentity = require('amazon-cognito-identity-js');
 
 const Signup = () => {

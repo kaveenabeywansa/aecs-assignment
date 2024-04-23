@@ -1,5 +1,5 @@
 import React from "react";
-import UserPool from "../../UserPool";
+import UserPool from "../../Helpers/user-pool-config";
 import { CognitoUserAttribute, CognitoUser } from "amazon-cognito-identity-js";
 import Swal from 'sweetalert2';
 function SignUpForm() {

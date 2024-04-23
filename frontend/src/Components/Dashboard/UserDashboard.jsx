@@ -1,6 +1,6 @@
 import React, { useEffect }  from 'react';
 import { useNavigate } from 'react-router-dom';
-import UserPool from "../../UserPool";
+import UserPool from "../../Helpers/user-pool-config";
 import { CognitoUser } from "amazon-cognito-identity-js";
 import authGuard from '../../Helpers/auth-guard';
 

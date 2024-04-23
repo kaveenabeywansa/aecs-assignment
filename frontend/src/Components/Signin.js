@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import UserPool from "../UserPool";
+import UserPool from "../Helpers/user-pool-config";
 import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
 
 const SignIn = () => {

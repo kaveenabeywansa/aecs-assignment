@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
-import UserPool from "../../UserPool";
+import UserPool from "../../Helpers/user-pool-config";
 import { CognitoUser, AuthenticationDetails,  } from "amazon-cognito-identity-js";
 import Swal from 'sweetalert2';
 
