@@ -84,7 +84,7 @@ let Controller = function () {
         const params = {
             TableName: TABLE,
             Key: {
-                [key]: parseInt(value)
+                [key]: value
             }
         }
 

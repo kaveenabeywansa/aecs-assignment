@@ -104,7 +104,7 @@ let Controller = function () {
         const params = {
             TableName: TABLE,
             Key: {
-                [key]: parseInt(value)
+                [key]: value
             }
         }
 
@@ -113,6 +113,7 @@ let Controller = function () {
             return { success: true }
 
         } catch (error) {
+            console.error(error);
             return { success: false }
         }
     }
