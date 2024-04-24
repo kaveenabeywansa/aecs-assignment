@@ -31,7 +31,7 @@ function UserDashboard(props) {
                 Welcome {username}
             </h2>
             <button className='signout-btn' onClick={handleSignOut}>
-                <img height={50} src={require('../../assets/logout.webp')} />
+                <img height={50} src={require('../../assets/logout.png')} />
             </button>
             <hr className='hr-separtor' />
 
