@@ -28,7 +28,7 @@ let Controller = function () {
             return { success: true, data: Items }
 
         } catch (error) {
-            return { success: false, data: null }
+            return { success: false, data: error }
         }
 
     }

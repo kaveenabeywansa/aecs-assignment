@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     if (success) {
         return res.json({ success, data });
     }
-    return res.status(500).json({ success: false, messsage: "Error" });
+    return res.status(500).json({ success: false, messsage: data });
 })
 
 // Get User by ID
