@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: nodeserver
-        image: kaveenabeywansa/quote-gen-service:v1
+        image: kaveenabeywansa/quote-gen-service:v2
         ports:
         - containerPort: 5001

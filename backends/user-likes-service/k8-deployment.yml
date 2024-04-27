@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: nodeserver
-        image: kaveenabeywansa/user-like-service:v2
+        image: kaveenabeywansa/user-like-service:v4
         ports:
         - containerPort: 5001
