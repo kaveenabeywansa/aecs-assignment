@@ -73,7 +73,7 @@ function SignUpForm() {
         isUserVerified ?
           <form >
             <h2>User has been Verified</h2>
-            <img src={ require('../../assets/green-checkmark.webp') } />
+            <img src={ require('../../assets/green-checkmark.png') } />
           </form>
           : isInitialSignup ?
             <form onSubmit={handleOnSubmit}>
