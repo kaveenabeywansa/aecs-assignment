@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-like-service-deployment
+  labels:
+    app: user-like-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-like-service
+  template:
+    metadata:
+      labels:
+        app: user-like-service 
+    spec:
+      containers:
+      - name: nodeserver
+        image: kaveenabeywansa/user-like-service:v1
+        ports:
+        - containerPort: 5001

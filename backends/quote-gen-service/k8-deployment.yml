@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quote-gen-service-deployment
+  labels:
+    app: quote-gen-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quote-gen-service
+  template:
+    metadata:
+      labels:
+        app: quote-gen-service
+    spec:
+      containers:
+      - name: nodeserver
+        image: kaveenabeywansa/quote-gen-service:v1
+        ports:
+        - containerPort: 5001
