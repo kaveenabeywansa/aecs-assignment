@@ -4,8 +4,8 @@ const CONST_USER_QUOTE_API = 'USER_QUOTE_SERVICE_API_ENDPOINT';
 const BASE_URLS = {
     // [CONST_USER_LIKE_API]: 'http://localhost:5001',
     // [CONST_USER_QUOTE_API]: 'http://localhost:5002'
-    [CONST_USER_LIKE_API]: 'http://16.171.129.69:4001',
-    [CONST_USER_QUOTE_API]: 'http://16.171.129.69:4002'
+    [CONST_USER_LIKE_API]: 'http://13.60.36.109:4001',
+    [CONST_USER_QUOTE_API]: 'http://13.60.36.109:4002'
 };
 
 const APIConfig = function () {
